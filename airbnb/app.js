@@ -15,7 +15,7 @@ const { mongoConnect } = require("./utils/mongoo");
 const { default: mongoose } = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const MONGO_DB_URL =
-  "mongodb+srv://sameertanker_db_user:26314@airbnb.gdkfpoj.mongodb.net/airbnb?appName=airbnb";
+
 db.query('SELECT * FROM airbnb."Rooms"')
   .then((res) => {
     console.log(res.rows);
@@ -104,7 +104,7 @@ const port = 8000;
 
 mongoose
   .connect(
-    "mongodb+srv://sameertanker_db_user:26314@airbnb.gdkfpoj.mongodb.net/airbnb?appName=airbnb",
+   
   )
   .then(() => {
     console.log("Connected to Mongo");
