@@ -1,6 +1,0 @@
-
- npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch 
- 
- to start : npm start
-
- mongodb+srv://sameertanker_db_user:<db_password>@airbnb.gdkfpoj.mongodb.net/?appName=airbnb
