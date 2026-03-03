@@ -19,9 +19,8 @@ hostRoutes.post("/add-home", getAdded);
 
 hostRoutes.get("/edit-home/:homeId", getEditHome);
 hostRoutes.post("/edit-home", postEditHome);
-hostRoutes.post("/delete-home/:homeId",postDeleteHome);
+hostRoutes.post("/delete-home/:homeId", postDeleteHome);
 
 module.exports = {
   hostRoutes,
 };
-

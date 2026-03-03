@@ -4,8 +4,8 @@
     <%- include('../partials/nav') %>
     <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
       <h1 class="text-3xl font-bold mb-6 text-center text-gray-800"><%= editing ? "Edit" : "Register" %>  Your Home on AirBnB</h1>
-      <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" class="max-w-md mx-auto">
-        <input type="hidden"  name="id" value="<%= editing ? home.id : "" %>">
+      <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
+        <input type="hidden"  name="id" value="<%= editing ? home._id : "" %>">
         <input
           type="text"
           name="houseName"
@@ -34,13 +34,33 @@
           placeholder="Expecrted rating"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
           />
-          <input 
-          type="png" 
-          name="urll" 
-          value="<%= editing ? home.urll : ""%>"
-        placeholder="Paste image URL"
-        class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-    >
+          <input
+          type="file"
+          name="urll"
+          multiple
+          accept="image/*"
+          class="
+            block w-full text-sm text-gray-600
+            file:mr-4 file:py-2.5 file:px-4
+            file:rounded-lg file:border-0
+            file:text-sm file:font-medium
+            file:bg-rose-500 file:text-white
+            hover:file:bg-rose-600
+            file:cursor-pointer
+            border border-gray-300
+            rounded-lg
+            focus:outline-none
+            focus:ring-2 focus:ring-rose-500
+            focus:border-rose-500
+            transition
+          "
+        />
+    <textarea
+    name="description"
+    placeholder="Describe your home"
+    class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+    <%= editing ? home.description : ""%>
+    ></textarea>
 
    
         <input type="submit" value="<%= editing ? "update home" : "add home" %>" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" />

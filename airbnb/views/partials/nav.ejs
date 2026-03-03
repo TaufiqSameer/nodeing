@@ -1,49 +1,73 @@
 <header class="bg-red-500 text-white p-4 shadow-md">
-    <nav class="container mx-auto flex justify-between items-center">
-      <ul class="flex space-x-4">
+  <nav class="container mx-auto flex justify-between items-center">
+    <ul class="flex space-x-4">
+
+      <li>
+        <a href="/" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+          Go to Home
+        </a>
+      </li>
+
+      <li>
+        <a href="/store/home" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+          Homes List
+        </a>
+      </li>
+
+      <% if (isLoggedIn) { %>
+
+        <% if (user && user.role === 'guest') { %>
+          <li>
+            <a href="/store/favourite" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+              Favourite
+            </a>
+          </li>
+
+          <li>
+            <a href="/store/bookings" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+              Bookings
+            </a>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/host/host-home" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+              Host Homes
+            </a>
+          </li>
+          <li>
+            <a href="/host/add-home" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+              Add Homes
+            </a>
+          </li>
+         
+        <% } %>
+
         <li>
-          <a
-            href="/"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >Go to Home</a
-          >
+          <form action="/logout" method="POST">
+            <button
+              type="submit"
+              class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+              Logout
+            </button>
+          </form>
         </li>
+
+      <% } else { %>
+
         <li>
-          <a
-            href="/store/home"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >Homes List</a
-          >
+          <a href="/login" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+            Login
+          </a>
         </li>
+
         <li>
-          <a
-            href="/host/add-home"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >Add Home</a
-          >
+          <a href="/sign-up" class="hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+            Sign Up
+          </a>
         </li>
-        <li>
-          <a
-            href="/store/Favourite"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >Favourite</a
-          >
-        </li>
-        </li>
-        <li>
-          <a
-            href="/store/bookings"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >bookings</a
-          >
-        </li>
-        <li>
-          <a
-            href="/host/host-home"
-            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-            >Host homes</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </header>
+
+      <% } %>
+
+    </ul>
+  </nav>
+</header>
