@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 const MONGO_URL =
-  "mongodb+srv://sameertanker_db_user:26314@airbnb.gdkfpoj.mongodb.net/?appName=airbnb";
+
 
 let _db;
 
